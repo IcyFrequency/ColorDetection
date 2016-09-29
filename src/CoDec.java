@@ -1,7 +1,3 @@
-
-
-
-
 import java.awt.AWTException;
 import java.awt.Color;
 import java.awt.Component;
@@ -109,27 +105,7 @@ public class CoDec{
 		Panel panel1 = new Panel();  
 		frame1.setContentPane(panel1);  
 		frame1.setVisible(true);  
-		/*JFrame frame2 = new JFrame("HSV");  
-		frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
-		frame2.setSize(640,480);  
-		frame2.setBounds(300,100, frame2.getWidth()+300, 100+frame2.getHeight());  
-		Panel panel2 = new Panel();  
-		frame2.setContentPane(panel2);  
-		frame2.setVisible(true);  
-		JFrame frame3 = new JFrame("S,V Distance");  
-                      frame3.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
-                      frame3.setSize(640,480);  
-                      frame3.setBounds(600,200, frame3.getWidth()+600, 200+frame3.getHeight());  
-                      Panel panel3 = new Panel();  
-                      frame3.setContentPane(panel3);  
-                      frame3.setVisible(true);  
-		JFrame frame4 = new JFrame("Threshold");  
-		frame4.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
-		frame4.setSize(640,480);  
-		frame4.setBounds(900,300, frame2.getWidth()+900, 300+frame2.getHeight());  
-		Panel panel4 = new Panel();  
-		frame4.setContentPane(panel4);      
-		frame4.setVisible(true);  */
+
 		//-- 2. Read the video stream  
 		VideoCapture capture =new VideoCapture(0); 
 		//capture.set(10, 0);
@@ -142,18 +118,9 @@ public class CoDec{
 		Mat thresholded2=new Mat();  
 		capture.read(webcam_image);  
 		frame1.setSize(webcam_image.width()+40,webcam_image.height()+60);  
-		//frame2.setSize(webcam_image.width()+40,webcam_image.height()+60);  
-		//frame3.setSize(webcam_image.width()+40,webcam_image.height()+60);  
-		//frame4.setSize(webcam_image.width()+40,webcam_image.height()+60);  
-		Mat array255=new Mat(webcam_image.height(),webcam_image.width(),CvType.CV_8UC1);  
-		array255.setTo(new Scalar(255));
 		
-		/*Mat S=new Mat();  
-         S.ones(new Size(hsv_image.width(),hsv_image.height()),CvType.CV_8UC1);  
-         Mat V=new Mat();  
-         V.ones(new Size(hsv_image.width(),hsv_image.height()),CvType.CV_8UC1);  
-         Mat H=new Mat();  
-         H.ones(new Size(hsv_image.width(),hsv_image.height()),CvType.CV_8UC1);*/  
+		Mat array255=new Mat(webcam_image.height(),webcam_image.width(),CvType.CV_8UC1);  
+		array255.setTo(new Scalar(255)); 
 		
 		Mat distance=new Mat(webcam_image.height(),webcam_image.width(),CvType.CV_8UC1);  
 		//new Mat();//new Size(webcam_image.width(),webcam_image.height()),CvType.CV_8UC1);  
@@ -251,15 +218,9 @@ public class CoDec{
 
 					//System.out.println(data[1]);
 					panel1.setimagewithMat(webcam_image);  
-					//panel2.setimagewithMat(hsv_image);  
-					//panel2.setimagewithMat(S);  
-					//distance.convertTo(distance, CvType.CV_8UC1);  
-					//panel3.setimagewithMat(distance);  
-					//panel4.setimagewithMat(thresholded);  
+  
 					frame1.repaint();  
-					//frame2.repaint();  
-					//frame3.repaint();  
-					//frame4.repaint();  
+
 
 				}  
 				else  
